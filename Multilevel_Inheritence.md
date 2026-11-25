@@ -1,32 +1,74 @@
+
 # Multilevel Inheritance Example in Python
 
-This Python project demonstrates the concept of **Multilevel Inheritance** to collect and display the **name**, **age**, and **location** of a person.
-
 ## 🎯 Aim
-
-To write a Python program that uses multilevel inheritance to get and display a person’s name, age, and location.
+To write a Python program using multilevel inheritance to get and display a person's name, age, and location.
 
 ## 🧠 Algorithm
+1. Create a parent class named `Parent`.
+2. Define a constructor `__init__()` to initialize the name.
+3. Define a method `getName()` to return the name.
+4. Create a child class named `Child` that inherits from `Parent`.
+5. Use `super()` to initialize the name and add the age.
+6. Define a method `getAge()` to return the age.
+7. Create a grandchild class named `Grandchild` that inherits from `Child`.
+8. Use `super()` to initialize the name and age and add the location.
+9. Define a method `getLocation()` to return the location.
+10. Get user input and display all details.
 
-1. **Parent Class**  
-   - `__init__(name)` initializes the `name` attribute.  
-   - `getName()` returns the `name`.
+## 💻 Program
 
-2. **Child Class (inherits Parent)**  
-   - `__init__(name, age)` initializes `name` using `super()` and adds `age`.  
-   - `getAge()` returns the `age`.
+```python
+class Parent:
+    def __init__(self, name):
+        self.name = name
 
-3. **Grandchild Class (inherits Child)**  
-   - `__init__(name, age, location)` initializes `name` and `age` using `super()` and adds `location`.  
-   - `getLocation()` returns the `location`.
+    def getName(self):
+        return self.name
 
-4. **Input & Output**  
-   - Take user input for name, age, and location.  
-   - Create an instance of `Grandchild`.  
-   - Print all details using class methods.
 
-## Program
-Add code here
+class Child(Parent):
+    def __init__(self, name, age):
+        super().__init__(name)
+        self.age = age
 
-## Sample Output
+    def getAge(self):
+        return self.age
 
+
+class Grandchild(Child):
+    def __init__(self, name, age, location):
+        super().__init__(name, age)
+        self.location = location
+
+    def getLocation(self):
+        return self.location
+
+
+name = input("Enter name: ")
+age = int(input("Enter age: "))
+location = input("Enter location: ")
+
+obj = Grandchild(name, age, location)
+
+print("\nPerson Details")
+print("Name:", obj.getName())
+print("Age:", obj.getAge())
+print("Location:", obj.getLocation())
+```
+
+## 🧪 Sample Output
+
+```text
+Enter name: Ganesh
+Enter age: 21
+Enter location: Chennai
+
+Person Details
+Name: Ganesh
+Age: 21
+Location: Chennai
+```
+
+## ✅ Result
+Thus, the Python program to demonstrate multilevel inheritance using Parent, Child, and Grandchild classes was executed successfully.
